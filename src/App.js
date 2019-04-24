@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Form from './componets/form';
-
+import Recipes from './componets/reacipes';
 const apiKey = '8b8427115f27a86a55a8ff37e40e26b8';
 
 class App extends Component {
@@ -13,7 +13,7 @@ class App extends Component {
       const recipeName = e.currentTarget.recipeName.value;
       e.preventDefault();
       const apiCall = await fetch(
-        `https://www.food2fork.com/api/search?key=${apiKey}&q=chicken%20breast&page=2`
+        `https://www.food2fork.com/api/search?key=${apiKey}&q=${recipeName}&page=2`
       );
       const { recipes } = await apiCall.json();
       this.setState({ recipes });
@@ -28,15 +28,8 @@ class App extends Component {
         <header className='App-header'>
           <h1 className='App-title'> recipe Search</h1>
         </header>
-        {this.state.recipes.length > 0 ? (
-          <ol>
-            {this.state.recipes.map(r => (
-              <li>{r.title}</li>
-            ))}
-          </ol>
-        ) : (
-          <Form onRecipe={this.getRecipe} />
-        )}
+        <Form onRecipe={this.getRecipe} />
+        <Recipes recipes={this.state.recipes} />
       </div>
     );
   }
