@@ -13,15 +13,24 @@ class App extends Component {
       const recipeName = e.currentTarget.recipeName.value;
       e.preventDefault();
       const apiCall = await fetch(
-        `https://www.food2fork.com/api/search?key=${apiKey}&q=${recipeName}&page=2`
+        `https://cors-anywhere.herokuapp.com/http://food2fork.com/api/search?key=${apiKey}&q=${recipeName}&count=10`
       );
+
       const { recipes } = await apiCall.json();
       this.setState({ recipes });
     } catch (ex) {
       console.log(ex);
     }
   };
+  componentDidMount = () => {
+    const recipes = JSON.parse(localStorage.getItem('recipes'));
+    this.setState({ recipes });
+  };
 
+  componentDidUpdate = () => {
+    const recipes = JSON.stringify(this.state.recipes);
+    localStorage.setItem('recipes', recipes);
+  };
   render() {
     return (
       <div className='App'>
