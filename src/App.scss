@@ -1,9 +1,11 @@
+@import "./variables.scss";
+
 .app-header {
-    background-color: #2c3e50;
+    background-color: $dark-grey-color;
     height: 90px;
     padding: 30px;
-    color: white;
-    margin-bottom: 2rem;
+    color: $white-color;
+    margin-bottom: 1rem;
 }
 
 .app-title {
@@ -11,7 +13,7 @@
 }
 
 body {
-    background: #f3f3f3;
+    background: $app-background;
 }
 
 .app {
@@ -26,7 +28,8 @@ img {
 }
 
 a {
-    color: #e74c3c !important;
+    color: $red-color !important;
+
 
 }
 
@@ -37,135 +40,188 @@ button:focus {
 
 
 
-
-.recipes-buttons {
-    border: solid 2px #e74c3c;
-    background: transparent;
-    padding: 0.4rem 0.6rem;
-    margin: 0 0.2rem;
-    border-radius: 1px;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    font-weight: 500;
-    margin-left: 0.7rem;
-}
-
 .recipes-box {
-    background: #fff;
+    background-color: $white-color;
     padding-bottom: 2rem;
     border-radius: 5px;
     box-shadow: -1px 2px 34px -13px rgba(0, 0, 0, 0.75);
     text-align: center;
     overflow: hidden;
+
+    .recipe-box-img {
+
+        vertical-align: baseline;
+    }
+
+    .recipe-text {
+        margin-left: 15px;
+    }
+
+    .recipes-subtitle {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+
+        span {
+            text-transform: none;
+            font-weight: 400;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+    }
+
+    .recipes-buttons {
+        border: solid 2px $red-color;
+        background: transparent;
+        padding: 0.4rem 0.6rem;
+        margin: 0 0.2rem;
+        border-radius: 1px;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        margin-left: 0.7rem;
+    }
+
 }
 
-.recipe-text {
-    margin-left: 15px;
+form {
+    margin-bottom: 2rem;
+
+    .form-input {
+        background: transparent;
+        border: 0;
+        border-bottom: solid 2px $dark-grey-color;
+        margin-right: 10px;
+        letter-spacing: 2px;
+        // width: 10%;
+        padding: 0.4rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        input[type="text"] {
+            outline: none;
+        }
+
+        input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 30px $white-color inset;
+            -webkit-text-fill-color: $dark-grey-color !important;
+        }
+    }
+
+    .form-button {
+        border: solid 2px $red-color;
+        background: transparent;
+        padding: 0.2rem 0.9rem;
+        margin: 0 0.2rem;
+        border-radius: 1px;
+        font-size: 1rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        margin-left: 0.7rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+
+
 }
 
-.recipes-title {
-    color: #e74c3c;
-    text-transform: uppercase;
-    font-size: 1.1rem;
-    padding: 1.8rem 0 0.2rem 0;
-}
-
-.recipes-subtitle {
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-}
-
-.recipes-subtitle span {
-    text-transform: none;
-    font-weight: 400;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-}
-
-.form-input {
-    background: transparent;
-    border: 0;
-    border-bottom: solid 2px #2c3e50;
-    margin-right: 10px;
-    letter-spacing: 2px;
-    width: 10%;
-    padding: 0.4rem;
-}
-
-.form-button {
-    border: solid 2px #e74c3c;
-    background: transparent;
-    padding: 0.2rem 0.9rem;
-    margin: 0 0.2rem;
-    border-radius: 1px;
-    font-size: 1rem;
-    text-transform: uppercase;
-    font-weight: 500;
-    margin-left: 0.7rem;
-}
-
-input[type="text"] {
-    outline: none;
-}
-
-input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px #f3f3f3 inset;
-    -webkit-text-fill-color: #2c3e50 !important;
-}
-
-/******** RECIPE.js ********/
 
 
 .active-recipe {
     margin: 0 auto;
     text-align: center;
-    width: 40%;
+    width: 80%;
+
+    .active-recipe-img {
+        height: 300px !important;
+
+    }
+
+    .active-recipe-title {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 1rem 0;
+    }
+
+    .active-recipe-publisher,
+    .active-recipe-website {
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+
+        span.publisher {
+            text-transform: none;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-left: 5px;
+        }
+
+        span.website {
+            text-transform: lowercase;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: $red-color;
+            margin-left: 10px;
+        }
+    }
+
+    .active-recipe-button {
+        border: solid 2px $red-color;
+        background: transparent;
+        padding: 0.2rem 0.9rem;
+        margin: 0 0.2rem;
+        border-radius: 1px;
+        font-size: 1rem;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
 }
 
-.active-recipe-img {
-    height: 300px !important;
-    /* width: 45%; */
-    margin: 0 auto;
-    display: block;
+
+@media (max-width: 575.98px) {
+
+    .form-input {
+        width: 30%;
+    }
 }
 
-.active-recipe-title {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 1rem 0;
+@media (max-width: 2000px) {
+
+    .active-recipe-img {
+        width: 40%;
+    }
 }
 
-.active-recipe-publisher,
-.active-recipe-website {
-    text-transform: uppercase;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+@media (max-width: 1000px) {
+    .active-recipe-img {
+        width: 70%;
+    }
 }
 
-.active-recipe-publisher span {
-    text-transform: none;
-    font-weight: 300;
-    letter-spacing: 2px;
-    margin-left: 5px;
+@media (max-width: 760px) {
+    .app-title {
+        text-align: center;
+    }
+
+    .active-recipe {
+        width: 70%;
+
+        .active-recipe-img {
+            width: 100%;
+        }
+    }
 }
 
-.active-recipe-website span {
-    text-transform: lowercase;
-    font-weight: 300;
-    letter-spacing: 2px;
-    color: #e74c3c;
-    margin-left: 10px;
-}
+@media (max-width: 500px) {
 
-.active-recipe-button {
-    border: solid 2px #e74c3c;
-    background: transparent;
-    padding: 0.2rem 0.9rem;
-    margin: 0 0.2rem;
-    border-radius: 1px;
-    font-size: 1rem;
-    text-transform: uppercase;
-    font-weight: 500;
+    a {
+        font-size: 65%;
+    }
+
 }

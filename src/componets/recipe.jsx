@@ -32,12 +32,11 @@ class Recipe extends Component {
             />
             <h3 className='active-recipe-title'>{recipe.title}</h3>
             <h4 className='active-recipe-publisher'>
-              Publisher: <span />
-              {recipe.publisher}
+              Publisher: <span className='publisher'>{recipe.publisher}</span>
             </h4>
             <p className='active-recipe-website'>
               Website:{' '}
-              <span>
+              <span className='website'>
                 {' '}
                 <a href={recipe.publisher_url}> {recipe.publisher_url}</a>
               </span>
