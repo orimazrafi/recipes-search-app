@@ -10,25 +10,25 @@ const Recipes = ({ recipes }) => (
             key={recipe.recipe_id}
             style={{ marginBottom: '2rem' }}
           >
-            <div className='recipes__box'>
+            <div className='recipes-box'>
               <img
-                className='recipe__box-img'
+                className='recipe-box-img'
                 src={recipe.image_url}
                 alt={recipe.title}
               />
-              <div className='recipe__text'>
+              <div className='recipe-text'>
                 <h5>
                   {' '}
                   {recipe.title.length < 20
                     ? `${recipe.title}`
                     : `${recipe.title.substring(0, 25)}...`}
                 </h5>
-                <p className='recipe__subtitle'>
+                <p className='recipe-subtitle'>
                   {' '}
                   Publisher: <span>{recipe.publisher}</span>
                 </p>
               </div>
-              <button className='recipe_buttons'>
+              <button className='recipes-buttons'>
                 <Link
                   to={{
                     pathname: `/recipe/${recipe.recipe_id}`,
